@@ -1,0 +1,139 @@
+#include<iostream>
+#include<string>
+#include<cmath>
+#include<cstdlib>
+#include<numeric>
+using namespace std;
+void shuffle(int BlackJackDeck[], int length)
+{
+  int temp = 0;
+  int randomIndex;
+  for (int i = 0; i < length; ++i)
+  {
+    randomIndex = rand() % length;
+    temp = BlackJackDeck[i];
+    BlackJackDeck[i] = BlackJackDeck[randomIndex];
+    BlackJackDeck[randomIndex] = temp;
+  }
+}
+
+int main()
+{
+//blackjack game by Angel Thomas Jesse Nunez
+srand(time(NULL));
+int userHand[6] = {0,0,0,0,0,0};
+int dealerHand[6] = {0,0,0,0,0,0};
+int n;
+int x;
+int Ace;
+int hand;
+int Jack = 10;
+int Queen = 10;
+int King = 10;
+int response;
+int response2;
+int response3;
+int response4;
+int response5;
+int i;
+int sum;
+int sum2;
+n = 0;
+int BlackJackDeck[] = {11,2,3,4,5,6,7,8,9,10,Jack,Queen,King,11,2,3,4,5,6,7,8,9,10,Jack,Queen,King, 11,2,3,4,5,6,7,8,9,10,Jack,Queen,King,11,2,3,4,5,6,7,8,9,10,Jack,Queen,King};
+shuffle (BlackJackDeck, 51);
+for (i = 0; i <51; ++i)
+{
+  cout <<" "<< BlackJackDeck[i] << endl;
+}
+
+cout<<"Welcome to the Black Jack Specialty Casino"<<endl;
+cout<<"Would you like to play a game press Y or y for yes and N or n for no"<<endl;
+cin>> response;
+if (response = 'Y' || 'y')
+ {
+cout<<"Alright the game will begin shortly"<<endl;
+ }
+else if (response = 'N' || 'n')
+ {
+cout<<"Thank you the game will now be terminated"<<endl;
+
+ }
+cout<<"Your first two cards will now be given"<<endl;
+cout<<"shuffling"<< endl;
+
+  userHand[n] = BlackJackDeck[2*0];
+ cout << userHand[0] << endl;
+
+  userHand[1] = BlackJackDeck[2 * 1];
+  cout << userHand[1] << endl;
+
+  sum = userHand[0] + userHand[1];
+  dealerHand[n] = BlackJackDeck[2*n+1];
+  sum2 = BlackJackDeck[1] + BlackJackDeck[3];
+  cout <<"Your hand is "<< sum << endl;
+  cout <<"Dealer Hand is "<< sum2 << endl;
+if (sum <21)
+    {
+  cout <<"Would you like to continue or stay"<< endl;
+  cin >> response2;
+if(response2 = 'y' || 'Y' )
+  {
+    userHand[2] = BlackJackDeck[2*2];
+    sum = sum + BlackJackDeck[2*2];
+    cout <<"Your new card is "<< userHand[2] <<" and your total is"<< sum << endl;
+  }
+    else if (response2 = 'n' || 'N')
+    {
+      cout <<"Thank you game will now be terminated"  << endl;
+    }
+if (sum >21)
+    {
+      cout <<"GAME OVER"<< endl;
+    }
+if (sum < 21)
+ {
+   cout <<"your total is "<< sum << endl;
+   cout <<"Would you like to continue"<< endl;
+   cin >> response3;
+if (response3 = 'y' || 'Y' )
+   {
+     userHand[3] = BlackJackDeck[2 * 3];
+     sum = sum + userHand[3];
+     cout <<"Your total is "<< sum << endl;
+if (sum >21)
+{
+     
+       cout <<"Game Over"<< endl;
+     
+   if (sum < 21)
+   {
+     cout <<"would you like to continue" << endl;
+     cin >> response4;
+     if (response4 = 'y' || 'Y')
+     {
+       userHand[4] = BlackJackDeck[4*2];
+       sum = sum + userHand[4];
+       cout <<"your total is " << sum << endl;
+       if (sum < 21 )
+       {
+         cout <<"would you like to continue" << endl;
+         cin >> response5;
+         
+       }
+     }
+    else
+     {
+       cout << "game is now done" << endl;
+     }
+    
+   }
+   else
+   {
+     cout << " game will now be terminated" << endl;
+   }
+}
+
+   }
+ }
+  }
+    }   
